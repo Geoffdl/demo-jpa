@@ -1,9 +1,6 @@
 package fr.diginamic.geoff;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +26,7 @@ public class ConnexionJpa
             transaction.commit();
 
 
-            System.out.println("Region: " + em.find(Region.class, 2).getName());
-            Region region = em.find(Region.class, 2);
+            Region region = em.find(Region.class, 2L);
             if (region != null)
             {
                 transaction.begin();
@@ -42,8 +38,8 @@ public class ConnexionJpa
             em.createQuery("DELETE FROM Region").executeUpdate();
             transaction.commit();
 
-
-            regions.addAll(List.of(new Region("Auvergne-Rhone-Alpes"),
+            List<Region> frenchRegions = List.of(
+                    new Region("Auvergne-Rhone-Alpes"),
                     new Region("Bourgogne-Franche-Comté"),
                     new Region("Bretagne"),
                     new Region("Centre-Val de Loire"),
@@ -55,21 +51,25 @@ public class ConnexionJpa
                     new Region("Nouvelle-Aquitaine"),
                     new Region("Occitanie"),
                     new Region("Pays de la Loire"),
-                    new Region("Provence Alpes Cote d'Azur")));
+                    new Region("Provence Alpes Cote d'Azur")
+            );
 
             transaction.begin();
-            for (Region r : regions)
+            for (Region r : frenchRegions)
             {
                 em.persist(r);
             }
 
             transaction.commit();
 
-            List<Region> allRegions = em.createQuery("SELECT r FROM Region r").getResultList();
+            TypedQuery<Region> query = em.createQuery("SELECT r FROM Region r",Region.class);
+            List<Region> allRegions = query.getResultList();
 
-            for(Region r: allRegions){
+            for (Region r : allRegions)
+            {
                 System.out.println(r.getName());
             }
+
 
         } catch (Exception e)
         {

@@ -4,24 +4,43 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
                                 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-    <persistence-unit name="demoPu" transaction-type="RESOURCE_LOCAL">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>fr.diginamic.geoff.cour.entity.User</class>
-        <properties>
-            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/demojpa"/>
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value="geoff"/>
-            <property name="hibernate.show_sql" value="true"/>
-        </properties>
-    </persistence-unit>
 
-    <persistence-unit name="pu_essai" transaction-type="RESOURCE_LOCAL">
+<!--    <persistence-unit name="demoPu" transaction-type="RESOURCE_LOCAL">-->
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--        <exclude-unlisted-classes>true</exclude-unlisted-classes>-->
+<!--        <properties>-->
+<!--            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>-->
+<!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/demojpa"/>-->
+<!--            <property name="jakarta.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="jakarta.persistence.jdbc.password" value="geoff"/>-->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            &lt;!&ndash;            <property name="hibernate.hbm2ddl.auto" value="update"/>&ndash;&gt;-->
+<!--        </properties>-->
+<!--    </persistence-unit>-->
+
+<!--    <persistence-unit name="pu_essai" transaction-type="RESOURCE_LOCAL">-->
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--        <class>fr.diginamic.geoff.Region</class>-->
+<!--        <exclude-unlisted-classes>true</exclude-unlisted-classes>-->
+<!--        <properties>-->
+<!--            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>-->
+<!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/recensement"/>-->
+<!--            <property name="jakarta.persistence.jdbc.user" value="root"/>-->
+<!--            <property name="jakarta.persistence.jdbc.password" value="geoff"/>-->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--&lt;!&ndash;            <property name="hibernate.hbm2ddl.auto" value="update"/>&ndash;&gt;-->
+<!--        </properties>-->
+<!--    </persistence-unit>-->
+
+    <persistence-unit name="demo_asso" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>fr.diginamic.geoff.Region</class>
+        <class>fr.diginamic.geoff.bibliotheque.Client</class>
+        <class>fr.diginamic.geoff.bibliotheque.Emprunt</class>
+        <class>fr.diginamic.geoff.bibliotheque.Livre</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/recensement"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/DEMO_ASSOCIATION"/>
             <property name="jakarta.persistence.jdbc.user" value="root"/>
             <property name="jakarta.persistence.jdbc.password" value="geoff"/>
             <property name="hibernate.show_sql" value="true"/>

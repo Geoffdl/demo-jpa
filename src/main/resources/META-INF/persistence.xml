@@ -37,6 +37,9 @@
         <class>fr.diginamic.geoff.bibliotheque.Client</class>
         <class>fr.diginamic.geoff.bibliotheque.Emprunt</class>
         <class>fr.diginamic.geoff.bibliotheque.Livre</class>
+        <class>fr.diginamic.geoff.shopping.Produit</class>
+        <class>fr.diginamic.geoff.shopping.Panier</class>
+        <class>fr.diginamic.geoff.shopping.Commande</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>

@@ -1,5 +1,6 @@
 package fr.diginamic.geoff.bibliotheque;
 
+import fr.diginamic.geoff.shopping.Produit;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -8,11 +9,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "LIVRE")
-public class Livre
+public class Livre extends Produit
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Column(name = "TITRE", length = 255)
     private String titre;

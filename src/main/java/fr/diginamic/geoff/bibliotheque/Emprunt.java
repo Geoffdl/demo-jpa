@@ -81,11 +81,6 @@ public class Emprunt
         return dateFin;
     }
 
-    public void setDateFin(Date dateFin)
-    {
-        this.dateFin = dateFin;
-    }
-
     public Client getClient()
     {
         return client;

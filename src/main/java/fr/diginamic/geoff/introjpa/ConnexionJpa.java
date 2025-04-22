@@ -1,4 +1,4 @@
-package fr.diginamic.geoff;
+package fr.diginamic.geoff.introjpa;
 
 import jakarta.persistence.*;
 

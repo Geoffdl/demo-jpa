@@ -54,19 +54,22 @@ public class TestJpa
             /* 2 */
             Long clientId = client.getId();
             Client clientData = em.find(Client.class, clientId);
+            clientData.getEmprunts().add(emprunt);
             List<Emprunt> borrowedBookks = clientData.getEmprunts();
 
             for (Emprunt b : borrowedBookks)
             {
-                System.out.println(b.getLivres());
+                for (Livre livre : b.getLivres()) {
+                    System.out.println("- " + livre.getTitre() + " (Auteur: " + livre.getAuteur() + ")");
+                }
             }
 
             /* 3 */
             transaction.begin();
-            Emprunt emprunt1 = em.find(Emprunt.class, 1);
+            Emprunt emprunt1 = em.find(Emprunt.class, 2);
             Livre livre3 = new Livre("JK. Rowling", "Harry Potter");
-            emprunt1.getLivres().add(livre3);
             em.persist(livre3);
+            emprunt1.getLivres().add(livre3);
             transaction.commit();
 
             /* 4 */

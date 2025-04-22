@@ -1,6 +1,5 @@
-package fr.diginamic.geoff.DAO;
+package fr.diginamic.geoff.dao;
 
-import fr.diginamic.geoff.JpaConnection;
 import fr.diginamic.geoff.bibliotheque.Client;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -26,7 +25,7 @@ public class ClientDao
 
     public List<Client> findAll(){
         try {
-            return em.createQuery("SELECT c FROM Client c", Client.class).getResultList();
+            return em.createQuery("SELECT c FROM ClientHeritage c", Client.class).getResultList();
         } catch (Exception e){
             throw new RuntimeException("Error finding all clients", e);
         }
@@ -77,7 +76,7 @@ public class ClientDao
     public List<Client> findByNomAndPrenom(String nom, String prenom) {
         try {
             Client client = em.createQuery(
-                            "SELECT c FROM Client c WHERE c.nom = :nom AND c.prenom = :prenom",
+                            "SELECT c FROM ClientHeritage c WHERE c.nom = :nom AND c.prenom = :prenom",
                             Client.class)
                     .setParameter("nom", nom)
                     .setParameter("prenom", prenom)

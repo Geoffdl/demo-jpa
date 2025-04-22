@@ -1,4 +1,4 @@
-package fr.diginamic.geoff;
+package fr.diginamic.geoff.dao;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -1,6 +1,5 @@
-package fr.diginamic.geoff.DAO;
+package fr.diginamic.geoff.dao;
 
-import fr.diginamic.geoff.JpaConnection;
 import fr.diginamic.geoff.bibliotheque.Client;
 import fr.diginamic.geoff.bibliotheque.Emprunt;
 import jakarta.persistence.EntityManager;

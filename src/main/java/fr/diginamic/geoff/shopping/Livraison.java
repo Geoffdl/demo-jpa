@@ -18,6 +18,6 @@ public class Livraison
 
     @ManyToOne
     @JoinColumn(name = "ID_COMMANDE", referencedColumnName = "ID")
-    private List<Commande> commandes;
+    private Commande commande;
 
 }

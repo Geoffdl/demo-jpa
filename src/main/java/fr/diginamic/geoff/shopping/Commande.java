@@ -5,6 +5,7 @@ import fr.diginamic.geoff.bibliotheque.Client;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "COMMANDE")
@@ -21,6 +22,9 @@ public class Commande
     @OneToOne
     @JoinColumn(name = "ID_PANIER", referencedColumnName = "ID")
     private Panier panier;
+
+    @OneToMany(mappedBy = "commande")
+    private Set<Livraison> livraisons;
 
     @Column(name = "DATE_COMMANDE")
     private LocalDateTime dateCommande;

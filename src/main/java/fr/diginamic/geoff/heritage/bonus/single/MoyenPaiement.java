@@ -11,6 +11,9 @@ public abstract class MoyenPaiement
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
+    @ManyToOne
+    @JoinColumn(name = "UTILISATEUR_ID")
+    private UtilisateurPaiement utilisateurPaiement;
 
     public MoyenPaiement()
     {

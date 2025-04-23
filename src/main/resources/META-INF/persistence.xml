@@ -103,4 +103,26 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="demo_requetes" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>fr.diginamic.geoff.requetes.entity.Film</class>
+        <class>fr.diginamic.geoff.requetes.entity.Genre</class>
+        <class>fr.diginamic.geoff.requetes.entity.Pays</class>
+        <class>fr.diginamic.geoff.requetes.entity.Realisateur</class>
+        <class>fr.diginamic.geoff.requetes.entity.Acteur</class>
+        <class>fr.diginamic.geoff.requetes.entity.Role</class>
+
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/DEMO_REQUETES"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="geoff"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+
 </persistence>
